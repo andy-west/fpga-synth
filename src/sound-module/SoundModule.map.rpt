@@ -1,0 +1,1230 @@
+Analysis & Synthesis report for SoundModule
+Wed Mar 27 03:45:32 2019
+Quartus II 64-Bit Version 10.1 Build 197 01/19/2011 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis DSP Block Usage Summary
+ 10. Analysis & Synthesis IP Cores Summary
+ 11. State Machine - |SoundModule|MidiProcessor:midiProcessor|dataBytesReceivedCount
+ 12. State Machine - |SoundModule|MidiProcessor:midiProcessor|MidiByteReader:midiByteReader|midiState
+ 13. Registers Removed During Synthesis
+ 14. Removed Registers Triggering Further Register Optimizations
+ 15. General Register Statistics
+ 16. Inverted Register Statistics
+ 17. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 18. Source assignments for Synthesizer:synthesizer|WaveTable0Rom:waveTable0Rom|altsyncram:altsyncram_component|altsyncram_l391:auto_generated
+ 19. Source assignments for Synthesizer:synthesizer|WaveTable1Rom:waveTable1Rom|altsyncram:altsyncram_component|altsyncram_m391:auto_generated
+ 20. Source assignments for Synthesizer:synthesizer|WaveTable2Rom:waveTable2Rom|altsyncram:altsyncram_component|altsyncram_n391:auto_generated
+ 21. Parameter Settings for User Entity Instance: Synthesizer:synthesizer|WaveTable0Rom:waveTable0Rom|altsyncram:altsyncram_component
+ 22. Parameter Settings for User Entity Instance: Synthesizer:synthesizer|WaveTable1Rom:waveTable1Rom|altsyncram:altsyncram_component
+ 23. Parameter Settings for User Entity Instance: Synthesizer:synthesizer|WaveTable2Rom:waveTable2Rom|altsyncram:altsyncram_component
+ 24. Parameter Settings for Inferred Entity Instance: Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult13
+ 25. Parameter Settings for Inferred Entity Instance: Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult11
+ 26. Parameter Settings for Inferred Entity Instance: Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult1
+ 27. Parameter Settings for Inferred Entity Instance: Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult0
+ 28. Parameter Settings for Inferred Entity Instance: Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult3
+ 29. Parameter Settings for Inferred Entity Instance: Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult5
+ 30. Parameter Settings for Inferred Entity Instance: Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult9
+ 31. Parameter Settings for Inferred Entity Instance: Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult7
+ 32. altsyncram Parameter Settings by Entity Instance
+ 33. lpm_mult Parameter Settings by Entity Instance
+ 34. Elapsed Time Per Partition
+ 35. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2011 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                       ;
++------------------------------------+-----------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Mar 27 03:45:32 2019         ;
+; Quartus II 64-Bit Version          ; 10.1 Build 197 01/19/2011 SP 1 SJ Web Edition ;
+; Revision Name                      ; SoundModule                                   ;
+; Top-level Entity Name              ; SoundModule                                   ;
+; Family                             ; Cyclone IV E                                  ;
+; Total logic elements               ; 917                                           ;
+;     Total combinational functions  ; 859                                           ;
+;     Dedicated logic registers      ; 183                                           ;
+; Total registers                    ; 183                                           ;
+; Total pins                         ; 13                                            ;
+; Total virtual pins                 ; 0                                             ;
+; Total memory bits                  ; 12,288                                        ;
+; Embedded Multiplier 9-bit elements ; 16                                            ;
+; Total PLLs                         ; 0                                             ;
++------------------------------------+-----------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE22F17C6       ;                    ;
+; Top-level entity name                                                      ; SoundModule        ; SoundModule        ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                         ;
++----------------------------------+-----------------+----------------------------------------+----------------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                     ;
++----------------------------------+-----------------+----------------------------------------+----------------------------------------------------------------------------------+
+; MidiNoteNumberToSampleTicks.v    ; yes             ; User Verilog HDL File                  ; C:/Users/Andy/Desktop/fpga-synth/code/sound-module/MidiNoteNumberToSampleTicks.v ;
+; SoundModule.v                    ; yes             ; User Verilog HDL File                  ; C:/Users/Andy/Desktop/fpga-synth/code/sound-module/SoundModule.v                 ;
+; Synthesizer.v                    ; yes             ; User Verilog HDL File                  ; C:/Users/Andy/Desktop/fpga-synth/code/sound-module/Synthesizer.v                 ;
+; MidiProcessor.v                  ; yes             ; User Verilog HDL File                  ; C:/Users/Andy/Desktop/fpga-synth/code/sound-module/MidiProcessor.v               ;
+; MidiByteReader.v                 ; yes             ; User Verilog HDL File                  ; C:/Users/Andy/Desktop/fpga-synth/code/sound-module/MidiByteReader.v              ;
+; WaveTable0Rom.v                  ; yes             ; User Wizard-Generated File             ; C:/Users/Andy/Desktop/fpga-synth/code/sound-module/WaveTable0Rom.v               ;
+; WaveTable1Rom.v                  ; yes             ; User Wizard-Generated File             ; C:/Users/Andy/Desktop/fpga-synth/code/sound-module/WaveTable1Rom.v               ;
+; SampleMixer.v                    ; yes             ; User Verilog HDL File                  ; C:/Users/Andy/Desktop/fpga-synth/code/sound-module/SampleMixer.v                 ;
+; WaveTable2Rom.v                  ; yes             ; User Wizard-Generated File             ; C:/Users/Andy/Desktop/fpga-synth/code/sound-module/WaveTable2Rom.v               ;
+; altsyncram.tdf                   ; yes             ; Megafunction                           ; c:/altera/10.1sp1/quartus/libraries/megafunctions/altsyncram.tdf                 ;
+; db/altsyncram_l391.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/Andy/Desktop/fpga-synth/code/sound-module/db/altsyncram_l391.tdf        ;
+; lead0.mif                        ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Andy/Desktop/fpga-synth/code/sound-module/lead0.mif                     ;
+; db/altsyncram_m391.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/Andy/Desktop/fpga-synth/code/sound-module/db/altsyncram_m391.tdf        ;
+; lead1.mif                        ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Andy/Desktop/fpga-synth/code/sound-module/lead1.mif                     ;
+; db/altsyncram_n391.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/Andy/Desktop/fpga-synth/code/sound-module/db/altsyncram_n391.tdf        ;
+; lead2.mif                        ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Andy/Desktop/fpga-synth/code/sound-module/lead2.mif                     ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                           ; c:/altera/10.1sp1/quartus/libraries/megafunctions/lpm_mult.tdf                   ;
+; db/mult_kbt.tdf                  ; yes             ; Auto-Generated Megafunction            ; C:/Users/Andy/Desktop/fpga-synth/code/sound-module/db/mult_kbt.tdf               ;
+; db/mult_4dt.tdf                  ; yes             ; Auto-Generated Megafunction            ; C:/Users/Andy/Desktop/fpga-synth/code/sound-module/db/mult_4dt.tdf               ;
++----------------------------------+-----------------+----------------------------------------+----------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimated Total logic elements              ; 917            ;
+;                                             ;                ;
+; Total combinational functions               ; 859            ;
+; Logic element usage by number of LUT inputs ;                ;
+;     -- 4 input functions                    ; 278            ;
+;     -- 3 input functions                    ; 340            ;
+;     -- <=2 input functions                  ; 241            ;
+;                                             ;                ;
+; Logic elements by mode                      ;                ;
+;     -- normal mode                          ; 392            ;
+;     -- arithmetic mode                      ; 467            ;
+;                                             ;                ;
+; Total registers                             ; 183            ;
+;     -- Dedicated logic registers            ; 183            ;
+;     -- I/O registers                        ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 13             ;
+; Total memory bits                           ; 12288          ;
+; Embedded Multiplier 9-bit elements          ; 16             ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 231            ;
+; Total fan-out                               ; 3751           ;
+; Average fan-out                             ; 3.31           ;
++---------------------------------------------+----------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                          ;
++-----------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                                      ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                             ; Library Name ;
++-----------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------+--------------+
+; |SoundModule                                                    ; 859 (8)           ; 183 (11)     ; 12288       ; 16           ; 0       ; 8         ; 13   ; 0            ; |SoundModule                                                                                                                    ;              ;
+;    |MidiProcessor:midiProcessor|                                ; 233 (38)          ; 100 (60)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SoundModule|MidiProcessor:midiProcessor                                                                                        ;              ;
+;       |MidiByteReader:midiByteReader|                           ; 65 (65)           ; 40 (40)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SoundModule|MidiProcessor:midiProcessor|MidiByteReader:midiByteReader                                                          ;              ;
+;       |MidiNoteNumberToSampleTicks:midiNoteNumberToSampleTicks| ; 130 (130)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SoundModule|MidiProcessor:midiProcessor|MidiNoteNumberToSampleTicks:midiNoteNumberToSampleTicks                                ;              ;
+;    |Synthesizer:synthesizer|                                    ; 618 (104)         ; 72 (72)      ; 12288       ; 16           ; 0       ; 8         ; 0    ; 0            ; |SoundModule|Synthesizer:synthesizer                                                                                            ;              ;
+;       |SampleMixer:sampleMixer|                                 ; 514 (514)         ; 0 (0)        ; 0           ; 16           ; 0       ; 8         ; 0    ; 0            ; |SoundModule|Synthesizer:synthesizer|SampleMixer:sampleMixer                                                                    ;              ;
+;          |lpm_mult:Mult0|                                       ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |SoundModule|Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult0                                                     ;              ;
+;             |mult_kbt:auto_generated|                           ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |SoundModule|Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult0|mult_kbt:auto_generated                             ;              ;
+;          |lpm_mult:Mult11|                                      ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |SoundModule|Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult11                                                    ;              ;
+;             |mult_kbt:auto_generated|                           ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |SoundModule|Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult11|mult_kbt:auto_generated                            ;              ;
+;          |lpm_mult:Mult13|                                      ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |SoundModule|Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult13                                                    ;              ;
+;             |mult_kbt:auto_generated|                           ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |SoundModule|Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult13|mult_kbt:auto_generated                            ;              ;
+;          |lpm_mult:Mult1|                                       ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |SoundModule|Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult1                                                     ;              ;
+;             |mult_kbt:auto_generated|                           ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |SoundModule|Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult1|mult_kbt:auto_generated                             ;              ;
+;          |lpm_mult:Mult3|                                       ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |SoundModule|Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult3                                                     ;              ;
+;             |mult_4dt:auto_generated|                           ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |SoundModule|Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult3|mult_4dt:auto_generated                             ;              ;
+;          |lpm_mult:Mult5|                                       ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |SoundModule|Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult5                                                     ;              ;
+;             |mult_4dt:auto_generated|                           ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |SoundModule|Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult5|mult_4dt:auto_generated                             ;              ;
+;          |lpm_mult:Mult7|                                       ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |SoundModule|Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult7                                                     ;              ;
+;             |mult_4dt:auto_generated|                           ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |SoundModule|Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult7|mult_4dt:auto_generated                             ;              ;
+;          |lpm_mult:Mult9|                                       ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |SoundModule|Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult9                                                     ;              ;
+;             |mult_4dt:auto_generated|                           ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |SoundModule|Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult9|mult_4dt:auto_generated                             ;              ;
+;       |WaveTable0Rom:waveTable0Rom|                             ; 0 (0)             ; 0 (0)        ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |SoundModule|Synthesizer:synthesizer|WaveTable0Rom:waveTable0Rom                                                                ;              ;
+;          |altsyncram:altsyncram_component|                      ; 0 (0)             ; 0 (0)        ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |SoundModule|Synthesizer:synthesizer|WaveTable0Rom:waveTable0Rom|altsyncram:altsyncram_component                                ;              ;
+;             |altsyncram_l391:auto_generated|                    ; 0 (0)             ; 0 (0)        ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |SoundModule|Synthesizer:synthesizer|WaveTable0Rom:waveTable0Rom|altsyncram:altsyncram_component|altsyncram_l391:auto_generated ;              ;
+;       |WaveTable1Rom:waveTable1Rom|                             ; 0 (0)             ; 0 (0)        ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |SoundModule|Synthesizer:synthesizer|WaveTable1Rom:waveTable1Rom                                                                ;              ;
+;          |altsyncram:altsyncram_component|                      ; 0 (0)             ; 0 (0)        ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |SoundModule|Synthesizer:synthesizer|WaveTable1Rom:waveTable1Rom|altsyncram:altsyncram_component                                ;              ;
+;             |altsyncram_m391:auto_generated|                    ; 0 (0)             ; 0 (0)        ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |SoundModule|Synthesizer:synthesizer|WaveTable1Rom:waveTable1Rom|altsyncram:altsyncram_component|altsyncram_m391:auto_generated ;              ;
+;       |WaveTable2Rom:waveTable2Rom|                             ; 0 (0)             ; 0 (0)        ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |SoundModule|Synthesizer:synthesizer|WaveTable2Rom:waveTable2Rom                                                                ;              ;
+;          |altsyncram:altsyncram_component|                      ; 0 (0)             ; 0 (0)        ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |SoundModule|Synthesizer:synthesizer|WaveTable2Rom:waveTable2Rom|altsyncram:altsyncram_component                                ;              ;
+;             |altsyncram_n391:auto_generated|                    ; 0 (0)             ; 0 (0)        ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |SoundModule|Synthesizer:synthesizer|WaveTable2Rom:waveTable2Rom|altsyncram:altsyncram_component|altsyncram_n391:auto_generated ;              ;
++-----------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                           ;
++-------------------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+-----------+
+; Name                                                                                                                          ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF       ;
++-------------------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+-----------+
+; Synthesizer:synthesizer|WaveTable0Rom:waveTable0Rom|altsyncram:altsyncram_component|altsyncram_l391:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 256          ; 16           ; --           ; --           ; 4096 ; lead0.mif ;
+; Synthesizer:synthesizer|WaveTable1Rom:waveTable1Rom|altsyncram:altsyncram_component|altsyncram_m391:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 256          ; 16           ; --           ; --           ; 4096 ; lead1.mif ;
+; Synthesizer:synthesizer|WaveTable2Rom:waveTable2Rom|altsyncram:altsyncram_component|altsyncram_n391:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 256          ; 16           ; --           ; --           ; 4096 ; lead2.mif ;
++-------------------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+-----------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 0           ;
+; Simple Multipliers (18-bit)           ; 8           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 16          ;
+; Signed Embedded Multipliers           ; 0           ;
+; Unsigned Embedded Multipliers         ; 8           ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                                                                                 ;
++--------+--------------+---------+--------------+--------------+------------------------------------------------------------------+--------------------------------------------------------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                                                  ; IP Include File                                                    ;
++--------+--------------+---------+--------------+--------------+------------------------------------------------------------------+--------------------------------------------------------------------+
+; Altera ; ROM: 1-PORT  ; 10.1    ; N/A          ; N/A          ; |SoundModule|Synthesizer:synthesizer|WaveTable0Rom:waveTable0Rom ; C:/Users/Andy/Desktop/fpga-synth/code/sound-module/WaveTable0Rom.v ;
++--------+--------------+---------+--------------+--------------+------------------------------------------------------------------+--------------------------------------------------------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |SoundModule|MidiProcessor:midiProcessor|dataBytesReceivedCount                                                                                         ;
++---------------------------------+---------------------------------+---------------------------------+---------------------------------+---------------------------------+
+; Name                            ; dataBytesReceivedCount.00000011 ; dataBytesReceivedCount.00000010 ; dataBytesReceivedCount.00000001 ; dataBytesReceivedCount.00000000 ;
++---------------------------------+---------------------------------+---------------------------------+---------------------------------+---------------------------------+
+; dataBytesReceivedCount.00000000 ; 0                               ; 0                               ; 0                               ; 0                               ;
+; dataBytesReceivedCount.00000001 ; 0                               ; 0                               ; 1                               ; 1                               ;
+; dataBytesReceivedCount.00000010 ; 0                               ; 1                               ; 0                               ; 1                               ;
+; dataBytesReceivedCount.00000011 ; 1                               ; 0                               ; 0                               ; 1                               ;
++---------------------------------+---------------------------------+---------------------------------+---------------------------------+---------------------------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |SoundModule|MidiProcessor:midiProcessor|MidiByteReader:midiByteReader|midiState                                 ;
++---------------------------------+---------------------------------+-----------------------------+--------------------------------+
+; Name                            ; midiState.stateWaitingForSignal ; midiState.stateByteComplete ; midiState.stateSignalAvailable ;
++---------------------------------+---------------------------------+-----------------------------+--------------------------------+
+; midiState.stateWaitingForSignal ; 0                               ; 0                           ; 0                              ;
+; midiState.stateSignalAvailable  ; 1                               ; 0                           ; 1                              ;
+; midiState.stateByteComplete     ; 1                               ; 1                           ; 0                              ;
++---------------------------------+---------------------------------+-----------------------------+--------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                              ;
++------------------------------------------------------------------------+----------------------------------------+
+; Register name                                                          ; Reason for Removal                     ;
++------------------------------------------------------------------------+----------------------------------------+
+; MidiProcessor:midiProcessor|noteSampleTicks[15..23]                    ; Stuck at GND due to stuck port data_in ;
+; MidiProcessor:midiProcessor|dataByte0[7]                               ; Stuck at GND due to stuck port data_in ;
+; MidiProcessor:midiProcessor|midiNoteNumber[7]                          ; Stuck at GND due to stuck port data_in ;
+; MidiProcessor:midiProcessor|controllerNumber[7]                        ; Stuck at GND due to stuck port data_in ;
+; MidiProcessor:midiProcessor|dataByte1[7]                               ; Stuck at GND due to stuck port data_in ;
+; MidiProcessor:midiProcessor|modulationValue[7]                         ; Stuck at GND due to stuck port data_in ;
+; Synthesizer:synthesizer|modulation[7]                                  ; Stuck at GND due to stuck port data_in ;
+; MidiProcessor:midiProcessor|dataBytesReceivedCount~2                   ; Lost fanout                            ;
+; MidiProcessor:midiProcessor|dataBytesReceivedCount~3                   ; Lost fanout                            ;
+; MidiProcessor:midiProcessor|dataBytesReceivedCount~4                   ; Lost fanout                            ;
+; MidiProcessor:midiProcessor|dataBytesReceivedCount~5                   ; Lost fanout                            ;
+; MidiProcessor:midiProcessor|dataBytesReceivedCount~6                   ; Lost fanout                            ;
+; MidiProcessor:midiProcessor|dataBytesReceivedCount~7                   ; Lost fanout                            ;
+; MidiProcessor:midiProcessor|dataBytesReceivedCount~8                   ; Lost fanout                            ;
+; MidiProcessor:midiProcessor|dataBytesReceivedCount~9                   ; Lost fanout                            ;
+; MidiProcessor:midiProcessor|MidiByteReader:midiByteReader|midiState~7  ; Lost fanout                            ;
+; MidiProcessor:midiProcessor|MidiByteReader:midiByteReader|midiState~8  ; Lost fanout                            ;
+; MidiProcessor:midiProcessor|MidiByteReader:midiByteReader|midiState~9  ; Lost fanout                            ;
+; MidiProcessor:midiProcessor|MidiByteReader:midiByteReader|midiState~10 ; Lost fanout                            ;
+; MidiProcessor:midiProcessor|MidiByteReader:midiByteReader|midiState~11 ; Lost fanout                            ;
+; MidiProcessor:midiProcessor|MidiByteReader:midiByteReader|midiState~12 ; Lost fanout                            ;
+; Total Number of Removed Registers = 29                                 ;                                        ;
++------------------------------------------------------------------------+----------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                             ;
++------------------------------------------+---------------------------+--------------------------------------------------+
+; Register name                            ; Reason for Removal        ; Registers Removed due to This Register           ;
++------------------------------------------+---------------------------+--------------------------------------------------+
+; MidiProcessor:midiProcessor|dataByte0[7] ; Stuck at GND              ; MidiProcessor:midiProcessor|controllerNumber[7], ;
+;                                          ; due to stuck port data_in ; MidiProcessor:midiProcessor|modulationValue[7],  ;
+;                                          ;                           ; Synthesizer:synthesizer|modulation[7]            ;
++------------------------------------------+---------------------------+--------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 183   ;
+; Number of registers using Synchronous Clear  ; 62    ;
+; Number of registers using Synchronous Load   ; 2     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 124   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------+
+; Inverted Register Statistics                                                             ;
++--------------------------------------------------------------------------------+---------+
+; Inverted Register                                                              ; Fan out ;
++--------------------------------------------------------------------------------+---------+
+; Synthesizer:synthesizer|bitCount[1]                                            ; 8       ;
+; Synthesizer:synthesizer|bitCount[0]                                            ; 8       ;
+; Synthesizer:synthesizer|bitCount[3]                                            ; 4       ;
+; Synthesizer:synthesizer|bitCount[2]                                            ; 3       ;
+; MidiProcessor:midiProcessor|MidiByteReader:midiByteReader|debounceCountDown[1] ; 2       ;
+; MidiProcessor:midiProcessor|MidiByteReader:midiByteReader|debounceCountDown[3] ; 2       ;
+; Total number of inverted registers = 6                                         ;         ;
++--------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------+
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |SoundModule|MidiProcessor:midiProcessor|MidiByteReader:midiByteReader|debounceCountDown[6] ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |SoundModule|MidiProcessor:midiProcessor|MidiByteReader:midiByteReader|bitNumber[2]         ;
+; 6:1                ; 12 bits   ; 48 LEs        ; 12 LEs               ; 36 LEs                 ; Yes        ; |SoundModule|MidiProcessor:midiProcessor|MidiByteReader:midiByteReader|midiCount[9]         ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |SoundModule|MidiProcessor:midiProcessor|MidiByteReader:midiByteReader|debounceCountDown[3] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |SoundModule|MidiProcessor:midiProcessor|MidiByteReader:midiByteReader|ShiftLeft0           ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |SoundModule|MidiProcessor:midiProcessor|MidiByteReader:midiByteReader|ShiftLeft0           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |SoundModule|Synthesizer:synthesizer|SampleMixer:sampleMixer|mixSample0[14]                 ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |SoundModule|Synthesizer:synthesizer|SampleMixer:sampleMixer|mixSample2[6]                  ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 64 LEs               ; 16 LEs                 ; No         ; |SoundModule|Synthesizer:synthesizer|SampleMixer:sampleMixer|mixSample1[12]                 ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 6 LEs                ; 9 LEs                  ; No         ; |SoundModule|MidiProcessor:midiProcessor|MidiByteReader:midiByteReader|Selector3            ;
+; 24:1               ; 2 bits    ; 32 LEs        ; 4 LEs                ; 28 LEs                 ; No         ; |SoundModule|MidiProcessor:midiProcessor|dataBytesReceivedCount                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for Synthesizer:synthesizer|WaveTable0Rom:waveTable0Rom|altsyncram:altsyncram_component|altsyncram_l391:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                          ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                           ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for Synthesizer:synthesizer|WaveTable1Rom:waveTable1Rom|altsyncram:altsyncram_component|altsyncram_m391:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                          ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                           ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for Synthesizer:synthesizer|WaveTable2Rom:waveTable2Rom|altsyncram:altsyncram_component|altsyncram_n391:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                          ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                           ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Synthesizer:synthesizer|WaveTable0Rom:waveTable0Rom|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+----------------------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                                 ;
++------------------------------------+----------------------+----------------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                              ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                           ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                                         ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                                         ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                                       ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                              ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                                                              ;
+; WIDTH_A                            ; 16                   ; Signed Integer                                                       ;
+; WIDTHAD_A                          ; 8                    ; Signed Integer                                                       ;
+; NUMWORDS_A                         ; 256                  ; Signed Integer                                                       ;
+; OUTDATA_REG_A                      ; CLOCK0               ; Untyped                                                              ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                              ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                              ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                              ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                              ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                              ;
+; WIDTH_B                            ; 1                    ; Untyped                                                              ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                                              ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                                              ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                              ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                              ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                              ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                                              ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                              ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                              ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                              ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                              ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                              ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                              ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                              ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                              ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                                       ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                              ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                              ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                              ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                              ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                              ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                              ;
+; INIT_FILE                          ; lead0.mif            ; Untyped                                                              ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                              ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                              ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                              ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                              ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                                              ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                              ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                              ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                              ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                              ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                              ;
+; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped                                                              ;
+; CBXI_PARAMETER                     ; altsyncram_l391      ; Untyped                                                              ;
++------------------------------------+----------------------+----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Synthesizer:synthesizer|WaveTable1Rom:waveTable1Rom|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+----------------------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                                 ;
++------------------------------------+----------------------+----------------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                              ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                           ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                                         ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                                         ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                                       ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                              ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                                                              ;
+; WIDTH_A                            ; 16                   ; Signed Integer                                                       ;
+; WIDTHAD_A                          ; 8                    ; Signed Integer                                                       ;
+; NUMWORDS_A                         ; 256                  ; Signed Integer                                                       ;
+; OUTDATA_REG_A                      ; CLOCK0               ; Untyped                                                              ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                              ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                              ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                              ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                              ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                              ;
+; WIDTH_B                            ; 1                    ; Untyped                                                              ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                                              ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                                              ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                              ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                              ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                              ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                                              ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                              ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                              ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                              ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                              ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                              ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                              ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                              ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                              ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                                       ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                              ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                              ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                              ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                              ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                              ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                              ;
+; INIT_FILE                          ; lead1.mif            ; Untyped                                                              ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                              ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                              ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                              ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                              ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                                              ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                              ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                              ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                              ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                              ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                              ;
+; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped                                                              ;
+; CBXI_PARAMETER                     ; altsyncram_m391      ; Untyped                                                              ;
++------------------------------------+----------------------+----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Synthesizer:synthesizer|WaveTable2Rom:waveTable2Rom|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+----------------------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                                 ;
++------------------------------------+----------------------+----------------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                              ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                           ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                                         ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                                         ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                                       ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                              ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                                                              ;
+; WIDTH_A                            ; 16                   ; Signed Integer                                                       ;
+; WIDTHAD_A                          ; 8                    ; Signed Integer                                                       ;
+; NUMWORDS_A                         ; 256                  ; Signed Integer                                                       ;
+; OUTDATA_REG_A                      ; CLOCK0               ; Untyped                                                              ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                              ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                              ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                              ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                              ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                              ;
+; WIDTH_B                            ; 1                    ; Untyped                                                              ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                                              ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                                              ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                              ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                              ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                              ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                                              ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                              ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                              ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                              ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                              ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                              ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                              ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                              ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                              ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                                       ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                              ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                              ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                              ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                              ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                              ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                              ;
+; INIT_FILE                          ; lead2.mif            ; Untyped                                                              ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                              ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                              ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                              ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                              ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                                              ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                              ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                              ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                              ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                              ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                              ;
+; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped                                                              ;
+; CBXI_PARAMETER                     ; altsyncram_n391      ; Untyped                                                              ;
++------------------------------------+----------------------+----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult13 ;
++------------------------------------------------+--------------+--------------------------------------------------+
+; Parameter Name                                 ; Value        ; Type                                             ;
++------------------------------------------------+--------------+--------------------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY                                       ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY                                     ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE                                     ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE                                   ;
+; LPM_WIDTHA                                     ; 10           ; Untyped                                          ;
+; LPM_WIDTHB                                     ; 7            ; Untyped                                          ;
+; LPM_WIDTHP                                     ; 17           ; Untyped                                          ;
+; LPM_WIDTHR                                     ; 17           ; Untyped                                          ;
+; LPM_WIDTHS                                     ; 1            ; Untyped                                          ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped                                          ;
+; LPM_PIPELINE                                   ; 0            ; Untyped                                          ;
+; LATENCY                                        ; 0            ; Untyped                                          ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped                                          ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped                                          ;
+; USE_EAB                                        ; OFF          ; Untyped                                          ;
+; MAXIMIZE_SPEED                                 ; 6            ; Untyped                                          ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped                                          ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped                                          ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K                              ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped                                          ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped                                          ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped                                          ;
+; CBXI_PARAMETER                                 ; mult_kbt     ; Untyped                                          ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped                                          ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped                                          ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped                                          ;
++------------------------------------------------+--------------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult11 ;
++------------------------------------------------+--------------+--------------------------------------------------+
+; Parameter Name                                 ; Value        ; Type                                             ;
++------------------------------------------------+--------------+--------------------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY                                       ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY                                     ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE                                     ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE                                   ;
+; LPM_WIDTHA                                     ; 10           ; Untyped                                          ;
+; LPM_WIDTHB                                     ; 7            ; Untyped                                          ;
+; LPM_WIDTHP                                     ; 17           ; Untyped                                          ;
+; LPM_WIDTHR                                     ; 17           ; Untyped                                          ;
+; LPM_WIDTHS                                     ; 1            ; Untyped                                          ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped                                          ;
+; LPM_PIPELINE                                   ; 0            ; Untyped                                          ;
+; LATENCY                                        ; 0            ; Untyped                                          ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped                                          ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped                                          ;
+; USE_EAB                                        ; OFF          ; Untyped                                          ;
+; MAXIMIZE_SPEED                                 ; 6            ; Untyped                                          ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped                                          ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped                                          ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K                              ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped                                          ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped                                          ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped                                          ;
+; CBXI_PARAMETER                                 ; mult_kbt     ; Untyped                                          ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped                                          ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped                                          ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped                                          ;
++------------------------------------------------+--------------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult1 ;
++------------------------------------------------+--------------+-------------------------------------------------+
+; Parameter Name                                 ; Value        ; Type                                            ;
++------------------------------------------------+--------------+-------------------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY                                      ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY                                    ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE                                    ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE                                  ;
+; LPM_WIDTHA                                     ; 10           ; Untyped                                         ;
+; LPM_WIDTHB                                     ; 7            ; Untyped                                         ;
+; LPM_WIDTHP                                     ; 17           ; Untyped                                         ;
+; LPM_WIDTHR                                     ; 17           ; Untyped                                         ;
+; LPM_WIDTHS                                     ; 1            ; Untyped                                         ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped                                         ;
+; LPM_PIPELINE                                   ; 0            ; Untyped                                         ;
+; LATENCY                                        ; 0            ; Untyped                                         ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped                                         ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped                                         ;
+; USE_EAB                                        ; OFF          ; Untyped                                         ;
+; MAXIMIZE_SPEED                                 ; 6            ; Untyped                                         ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped                                         ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped                                         ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K                             ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped                                         ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped                                         ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped                                         ;
+; CBXI_PARAMETER                                 ; mult_kbt     ; Untyped                                         ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped                                         ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped                                         ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped                                         ;
++------------------------------------------------+--------------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult0 ;
++------------------------------------------------+--------------+-------------------------------------------------+
+; Parameter Name                                 ; Value        ; Type                                            ;
++------------------------------------------------+--------------+-------------------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY                                      ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY                                    ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE                                    ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE                                  ;
+; LPM_WIDTHA                                     ; 10           ; Untyped                                         ;
+; LPM_WIDTHB                                     ; 7            ; Untyped                                         ;
+; LPM_WIDTHP                                     ; 17           ; Untyped                                         ;
+; LPM_WIDTHR                                     ; 17           ; Untyped                                         ;
+; LPM_WIDTHS                                     ; 1            ; Untyped                                         ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped                                         ;
+; LPM_PIPELINE                                   ; 0            ; Untyped                                         ;
+; LATENCY                                        ; 0            ; Untyped                                         ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped                                         ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped                                         ;
+; USE_EAB                                        ; OFF          ; Untyped                                         ;
+; MAXIMIZE_SPEED                                 ; 6            ; Untyped                                         ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped                                         ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped                                         ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K                             ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped                                         ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped                                         ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped                                         ;
+; CBXI_PARAMETER                                 ; mult_kbt     ; Untyped                                         ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped                                         ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped                                         ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped                                         ;
++------------------------------------------------+--------------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult3 ;
++------------------------------------------------+--------------+-------------------------------------------------+
+; Parameter Name                                 ; Value        ; Type                                            ;
++------------------------------------------------+--------------+-------------------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY                                      ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY                                    ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE                                    ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE                                  ;
+; LPM_WIDTHA                                     ; 10           ; Untyped                                         ;
+; LPM_WIDTHB                                     ; 16           ; Untyped                                         ;
+; LPM_WIDTHP                                     ; 26           ; Untyped                                         ;
+; LPM_WIDTHR                                     ; 26           ; Untyped                                         ;
+; LPM_WIDTHS                                     ; 1            ; Untyped                                         ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped                                         ;
+; LPM_PIPELINE                                   ; 0            ; Untyped                                         ;
+; LATENCY                                        ; 0            ; Untyped                                         ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped                                         ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped                                         ;
+; USE_EAB                                        ; OFF          ; Untyped                                         ;
+; MAXIMIZE_SPEED                                 ; 6            ; Untyped                                         ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped                                         ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped                                         ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K                             ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped                                         ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped                                         ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped                                         ;
+; CBXI_PARAMETER                                 ; mult_4dt     ; Untyped                                         ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped                                         ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped                                         ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped                                         ;
++------------------------------------------------+--------------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult5 ;
++------------------------------------------------+--------------+-------------------------------------------------+
+; Parameter Name                                 ; Value        ; Type                                            ;
++------------------------------------------------+--------------+-------------------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY                                      ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY                                    ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE                                    ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE                                  ;
+; LPM_WIDTHA                                     ; 10           ; Untyped                                         ;
+; LPM_WIDTHB                                     ; 16           ; Untyped                                         ;
+; LPM_WIDTHP                                     ; 26           ; Untyped                                         ;
+; LPM_WIDTHR                                     ; 26           ; Untyped                                         ;
+; LPM_WIDTHS                                     ; 1            ; Untyped                                         ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped                                         ;
+; LPM_PIPELINE                                   ; 0            ; Untyped                                         ;
+; LATENCY                                        ; 0            ; Untyped                                         ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped                                         ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped                                         ;
+; USE_EAB                                        ; OFF          ; Untyped                                         ;
+; MAXIMIZE_SPEED                                 ; 6            ; Untyped                                         ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped                                         ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped                                         ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K                             ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped                                         ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped                                         ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped                                         ;
+; CBXI_PARAMETER                                 ; mult_4dt     ; Untyped                                         ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped                                         ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped                                         ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped                                         ;
++------------------------------------------------+--------------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult9 ;
++------------------------------------------------+--------------+-------------------------------------------------+
+; Parameter Name                                 ; Value        ; Type                                            ;
++------------------------------------------------+--------------+-------------------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY                                      ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY                                    ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE                                    ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE                                  ;
+; LPM_WIDTHA                                     ; 10           ; Untyped                                         ;
+; LPM_WIDTHB                                     ; 16           ; Untyped                                         ;
+; LPM_WIDTHP                                     ; 26           ; Untyped                                         ;
+; LPM_WIDTHR                                     ; 26           ; Untyped                                         ;
+; LPM_WIDTHS                                     ; 1            ; Untyped                                         ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped                                         ;
+; LPM_PIPELINE                                   ; 0            ; Untyped                                         ;
+; LATENCY                                        ; 0            ; Untyped                                         ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped                                         ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped                                         ;
+; USE_EAB                                        ; OFF          ; Untyped                                         ;
+; MAXIMIZE_SPEED                                 ; 6            ; Untyped                                         ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped                                         ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped                                         ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K                             ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped                                         ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped                                         ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped                                         ;
+; CBXI_PARAMETER                                 ; mult_4dt     ; Untyped                                         ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped                                         ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped                                         ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped                                         ;
++------------------------------------------------+--------------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult7 ;
++------------------------------------------------+--------------+-------------------------------------------------+
+; Parameter Name                                 ; Value        ; Type                                            ;
++------------------------------------------------+--------------+-------------------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY                                      ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY                                    ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE                                    ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE                                  ;
+; LPM_WIDTHA                                     ; 10           ; Untyped                                         ;
+; LPM_WIDTHB                                     ; 16           ; Untyped                                         ;
+; LPM_WIDTHP                                     ; 26           ; Untyped                                         ;
+; LPM_WIDTHR                                     ; 26           ; Untyped                                         ;
+; LPM_WIDTHS                                     ; 1            ; Untyped                                         ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped                                         ;
+; LPM_PIPELINE                                   ; 0            ; Untyped                                         ;
+; LATENCY                                        ; 0            ; Untyped                                         ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped                                         ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped                                         ;
+; USE_EAB                                        ; OFF          ; Untyped                                         ;
+; MAXIMIZE_SPEED                                 ; 6            ; Untyped                                         ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped                                         ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped                                         ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K                             ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped                                         ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped                                         ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped                                         ;
+; CBXI_PARAMETER                                 ; mult_4dt     ; Untyped                                         ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped                                         ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped                                         ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped                                         ;
++------------------------------------------------+--------------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                                                ;
++-------------------------------------------+-------------------------------------------------------------------------------------+
+; Name                                      ; Value                                                                               ;
++-------------------------------------------+-------------------------------------------------------------------------------------+
+; Number of entity instances                ; 3                                                                                   ;
+; Entity Instance                           ; Synthesizer:synthesizer|WaveTable0Rom:waveTable0Rom|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; ROM                                                                                 ;
+;     -- WIDTH_A                            ; 16                                                                                  ;
+;     -- NUMWORDS_A                         ; 256                                                                                 ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                                                              ;
+;     -- WIDTH_B                            ; 1                                                                                   ;
+;     -- NUMWORDS_B                         ; 1                                                                                   ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                              ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                        ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                           ;
+; Entity Instance                           ; Synthesizer:synthesizer|WaveTable1Rom:waveTable1Rom|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; ROM                                                                                 ;
+;     -- WIDTH_A                            ; 16                                                                                  ;
+;     -- NUMWORDS_A                         ; 256                                                                                 ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                                                              ;
+;     -- WIDTH_B                            ; 1                                                                                   ;
+;     -- NUMWORDS_B                         ; 1                                                                                   ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                              ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                        ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                           ;
+; Entity Instance                           ; Synthesizer:synthesizer|WaveTable2Rom:waveTable2Rom|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; ROM                                                                                 ;
+;     -- WIDTH_A                            ; 16                                                                                  ;
+;     -- NUMWORDS_A                         ; 256                                                                                 ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                                                              ;
+;     -- WIDTH_B                            ; 1                                                                                   ;
+;     -- NUMWORDS_B                         ; 1                                                                                   ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                              ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                        ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                           ;
++-------------------------------------------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                                                          ;
++---------------------------------------+-----------------------------------------------------------------+
+; Name                                  ; Value                                                           ;
++---------------------------------------+-----------------------------------------------------------------+
+; Number of entity instances            ; 8                                                               ;
+; Entity Instance                       ; Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult13 ;
+;     -- LPM_WIDTHA                     ; 10                                                              ;
+;     -- LPM_WIDTHB                     ; 7                                                               ;
+;     -- LPM_WIDTHP                     ; 17                                                              ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                                        ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                                              ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                                              ;
+;     -- USE_EAB                        ; OFF                                                             ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                            ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                              ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                              ;
+; Entity Instance                       ; Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult11 ;
+;     -- LPM_WIDTHA                     ; 10                                                              ;
+;     -- LPM_WIDTHB                     ; 7                                                               ;
+;     -- LPM_WIDTHP                     ; 17                                                              ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                                        ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                                              ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                                              ;
+;     -- USE_EAB                        ; OFF                                                             ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                            ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                              ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                              ;
+; Entity Instance                       ; Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult1  ;
+;     -- LPM_WIDTHA                     ; 10                                                              ;
+;     -- LPM_WIDTHB                     ; 7                                                               ;
+;     -- LPM_WIDTHP                     ; 17                                                              ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                                        ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                                              ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                                              ;
+;     -- USE_EAB                        ; OFF                                                             ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                            ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                              ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                              ;
+; Entity Instance                       ; Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult0  ;
+;     -- LPM_WIDTHA                     ; 10                                                              ;
+;     -- LPM_WIDTHB                     ; 7                                                               ;
+;     -- LPM_WIDTHP                     ; 17                                                              ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                                        ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                                              ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                                              ;
+;     -- USE_EAB                        ; OFF                                                             ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                            ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                              ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                              ;
+; Entity Instance                       ; Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult3  ;
+;     -- LPM_WIDTHA                     ; 10                                                              ;
+;     -- LPM_WIDTHB                     ; 16                                                              ;
+;     -- LPM_WIDTHP                     ; 26                                                              ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                                        ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                                              ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                                              ;
+;     -- USE_EAB                        ; OFF                                                             ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                            ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                              ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                              ;
+; Entity Instance                       ; Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult5  ;
+;     -- LPM_WIDTHA                     ; 10                                                              ;
+;     -- LPM_WIDTHB                     ; 16                                                              ;
+;     -- LPM_WIDTHP                     ; 26                                                              ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                                        ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                                              ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                                              ;
+;     -- USE_EAB                        ; OFF                                                             ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                            ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                              ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                              ;
+; Entity Instance                       ; Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult9  ;
+;     -- LPM_WIDTHA                     ; 10                                                              ;
+;     -- LPM_WIDTHB                     ; 16                                                              ;
+;     -- LPM_WIDTHP                     ; 26                                                              ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                                        ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                                              ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                                              ;
+;     -- USE_EAB                        ; OFF                                                             ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                            ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                              ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                              ;
+; Entity Instance                       ; Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult7  ;
+;     -- LPM_WIDTHA                     ; 10                                                              ;
+;     -- LPM_WIDTHB                     ; 16                                                              ;
+;     -- LPM_WIDTHP                     ; 26                                                              ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                                        ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                                              ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                                              ;
+;     -- USE_EAB                        ; OFF                                                             ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                            ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                              ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                              ;
++---------------------------------------+-----------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 10.1 Build 197 01/19/2011 Service Pack 1 SJ Web Edition
+    Info: Processing started: Wed Mar 27 03:45:27 2019
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SoundModule -c SoundModule
+Info: Found 1 design units, including 1 entities, in source file midinotenumbertosampleticks.v
+    Info: Found entity 1: MidiNoteNumberToSampleTicks
+Info: Found 1 design units, including 1 entities, in source file soundmodule.v
+    Info: Found entity 1: SoundModule
+Info: Found 1 design units, including 1 entities, in source file synthesizer.v
+    Info: Found entity 1: Synthesizer
+Info: Found 1 design units, including 1 entities, in source file midiprocessor.v
+    Info: Found entity 1: MidiProcessor
+Info: Found 1 design units, including 1 entities, in source file midibytereader.v
+    Info: Found entity 1: MidiByteReader
+Info: Found 1 design units, including 1 entities, in source file wavetable0rom.v
+    Info: Found entity 1: WaveTable0Rom
+Info: Found 1 design units, including 1 entities, in source file wavetable1rom.v
+    Info: Found entity 1: WaveTable1Rom
+Info: Found 1 design units, including 1 entities, in source file samplemixer.v
+    Info: Found entity 1: SampleMixer
+Info: Found 1 design units, including 1 entities, in source file wavetable2rom.v
+    Info: Found entity 1: WaveTable2Rom
+Info: Elaborating entity "SoundModule" for the top level hierarchy
+Info: Elaborating entity "MidiProcessor" for hierarchy "MidiProcessor:midiProcessor"
+Warning (10036): Verilog HDL or VHDL warning at MidiProcessor.v(10): object "channel" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at MidiProcessor.v(13): object "dataByte2" assigned a value but never read
+Info (10264): Verilog HDL Case Statement information at MidiProcessor.v(32): all case item expressions in this case statement are onehot
+Info (10264): Verilog HDL Case Statement information at MidiProcessor.v(75): all case item expressions in this case statement are onehot
+Info (10264): Verilog HDL Case Statement information at MidiProcessor.v(95): all case item expressions in this case statement are onehot
+Info: Elaborating entity "MidiByteReader" for hierarchy "MidiProcessor:midiProcessor|MidiByteReader:midiByteReader"
+Info: Elaborating entity "MidiNoteNumberToSampleTicks" for hierarchy "MidiProcessor:midiProcessor|MidiNoteNumberToSampleTicks:midiNoteNumberToSampleTicks"
+Info: Elaborating entity "Synthesizer" for hierarchy "Synthesizer:synthesizer"
+Info: Elaborating entity "WaveTable0Rom" for hierarchy "Synthesizer:synthesizer|WaveTable0Rom:waveTable0Rom"
+Info: Elaborating entity "altsyncram" for hierarchy "Synthesizer:synthesizer|WaveTable0Rom:waveTable0Rom|altsyncram:altsyncram_component"
+Info: Elaborated megafunction instantiation "Synthesizer:synthesizer|WaveTable0Rom:waveTable0Rom|altsyncram:altsyncram_component"
+Info: Instantiated megafunction "Synthesizer:synthesizer|WaveTable0Rom:waveTable0Rom|altsyncram:altsyncram_component" with the following parameter:
+    Info: Parameter "address_aclr_a" = "NONE"
+    Info: Parameter "clock_enable_input_a" = "BYPASS"
+    Info: Parameter "clock_enable_output_a" = "BYPASS"
+    Info: Parameter "init_file" = "lead0.mif"
+    Info: Parameter "intended_device_family" = "Cyclone IV E"
+    Info: Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info: Parameter "lpm_type" = "altsyncram"
+    Info: Parameter "numwords_a" = "256"
+    Info: Parameter "operation_mode" = "ROM"
+    Info: Parameter "outdata_aclr_a" = "NONE"
+    Info: Parameter "outdata_reg_a" = "CLOCK0"
+    Info: Parameter "widthad_a" = "8"
+    Info: Parameter "width_a" = "16"
+    Info: Parameter "width_byteena_a" = "1"
+Info: Found 1 design units, including 1 entities, in source file db/altsyncram_l391.tdf
+    Info: Found entity 1: altsyncram_l391
+Info: Elaborating entity "altsyncram_l391" for hierarchy "Synthesizer:synthesizer|WaveTable0Rom:waveTable0Rom|altsyncram:altsyncram_component|altsyncram_l391:auto_generated"
+Info: Elaborating entity "WaveTable1Rom" for hierarchy "Synthesizer:synthesizer|WaveTable1Rom:waveTable1Rom"
+Info: Elaborating entity "altsyncram" for hierarchy "Synthesizer:synthesizer|WaveTable1Rom:waveTable1Rom|altsyncram:altsyncram_component"
+Info: Elaborated megafunction instantiation "Synthesizer:synthesizer|WaveTable1Rom:waveTable1Rom|altsyncram:altsyncram_component"
+Info: Instantiated megafunction "Synthesizer:synthesizer|WaveTable1Rom:waveTable1Rom|altsyncram:altsyncram_component" with the following parameter:
+    Info: Parameter "address_aclr_a" = "NONE"
+    Info: Parameter "clock_enable_input_a" = "BYPASS"
+    Info: Parameter "clock_enable_output_a" = "BYPASS"
+    Info: Parameter "init_file" = "lead1.mif"
+    Info: Parameter "intended_device_family" = "Cyclone IV E"
+    Info: Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info: Parameter "lpm_type" = "altsyncram"
+    Info: Parameter "numwords_a" = "256"
+    Info: Parameter "operation_mode" = "ROM"
+    Info: Parameter "outdata_aclr_a" = "NONE"
+    Info: Parameter "outdata_reg_a" = "CLOCK0"
+    Info: Parameter "widthad_a" = "8"
+    Info: Parameter "width_a" = "16"
+    Info: Parameter "width_byteena_a" = "1"
+Info: Found 1 design units, including 1 entities, in source file db/altsyncram_m391.tdf
+    Info: Found entity 1: altsyncram_m391
+Info: Elaborating entity "altsyncram_m391" for hierarchy "Synthesizer:synthesizer|WaveTable1Rom:waveTable1Rom|altsyncram:altsyncram_component|altsyncram_m391:auto_generated"
+Info: Elaborating entity "WaveTable2Rom" for hierarchy "Synthesizer:synthesizer|WaveTable2Rom:waveTable2Rom"
+Info: Elaborating entity "altsyncram" for hierarchy "Synthesizer:synthesizer|WaveTable2Rom:waveTable2Rom|altsyncram:altsyncram_component"
+Info: Elaborated megafunction instantiation "Synthesizer:synthesizer|WaveTable2Rom:waveTable2Rom|altsyncram:altsyncram_component"
+Info: Instantiated megafunction "Synthesizer:synthesizer|WaveTable2Rom:waveTable2Rom|altsyncram:altsyncram_component" with the following parameter:
+    Info: Parameter "address_aclr_a" = "NONE"
+    Info: Parameter "clock_enable_input_a" = "BYPASS"
+    Info: Parameter "clock_enable_output_a" = "BYPASS"
+    Info: Parameter "init_file" = "lead2.mif"
+    Info: Parameter "intended_device_family" = "Cyclone IV E"
+    Info: Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info: Parameter "lpm_type" = "altsyncram"
+    Info: Parameter "numwords_a" = "256"
+    Info: Parameter "operation_mode" = "ROM"
+    Info: Parameter "outdata_aclr_a" = "NONE"
+    Info: Parameter "outdata_reg_a" = "CLOCK0"
+    Info: Parameter "widthad_a" = "8"
+    Info: Parameter "width_a" = "16"
+    Info: Parameter "width_byteena_a" = "1"
+Info: Found 1 design units, including 1 entities, in source file db/altsyncram_n391.tdf
+    Info: Found entity 1: altsyncram_n391
+Info: Elaborating entity "altsyncram_n391" for hierarchy "Synthesizer:synthesizer|WaveTable2Rom:waveTable2Rom|altsyncram:altsyncram_component|altsyncram_n391:auto_generated"
+Info: Elaborating entity "SampleMixer" for hierarchy "Synthesizer:synthesizer|SampleMixer:sampleMixer"
+Info: Inferred 8 megafunctions from design logic
+    Info: Inferred multiplier megafunction ("lpm_mult") from the following logic: "Synthesizer:synthesizer|SampleMixer:sampleMixer|Mult13"
+    Info: Inferred multiplier megafunction ("lpm_mult") from the following logic: "Synthesizer:synthesizer|SampleMixer:sampleMixer|Mult11"
+    Info: Inferred multiplier megafunction ("lpm_mult") from the following logic: "Synthesizer:synthesizer|SampleMixer:sampleMixer|Mult1"
+    Info: Inferred multiplier megafunction ("lpm_mult") from the following logic: "Synthesizer:synthesizer|SampleMixer:sampleMixer|Mult0"
+    Info: Inferred multiplier megafunction ("lpm_mult") from the following logic: "Synthesizer:synthesizer|SampleMixer:sampleMixer|Mult3"
+    Info: Inferred multiplier megafunction ("lpm_mult") from the following logic: "Synthesizer:synthesizer|SampleMixer:sampleMixer|Mult5"
+    Info: Inferred multiplier megafunction ("lpm_mult") from the following logic: "Synthesizer:synthesizer|SampleMixer:sampleMixer|Mult9"
+    Info: Inferred multiplier megafunction ("lpm_mult") from the following logic: "Synthesizer:synthesizer|SampleMixer:sampleMixer|Mult7"
+Info: Elaborated megafunction instantiation "Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult13"
+Info: Instantiated megafunction "Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult13" with the following parameter:
+    Info: Parameter "LPM_WIDTHA" = "10"
+    Info: Parameter "LPM_WIDTHB" = "7"
+    Info: Parameter "LPM_WIDTHP" = "17"
+    Info: Parameter "LPM_WIDTHR" = "17"
+    Info: Parameter "LPM_WIDTHS" = "1"
+    Info: Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info: Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info: Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info: Parameter "MAXIMIZE_SPEED" = "6"
+Info: Found 1 design units, including 1 entities, in source file db/mult_kbt.tdf
+    Info: Found entity 1: mult_kbt
+Info: Elaborated megafunction instantiation "Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult3"
+Info: Instantiated megafunction "Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult3" with the following parameter:
+    Info: Parameter "LPM_WIDTHA" = "10"
+    Info: Parameter "LPM_WIDTHB" = "16"
+    Info: Parameter "LPM_WIDTHP" = "26"
+    Info: Parameter "LPM_WIDTHR" = "26"
+    Info: Parameter "LPM_WIDTHS" = "1"
+    Info: Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info: Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info: Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info: Parameter "MAXIMIZE_SPEED" = "6"
+Info: Found 1 design units, including 1 entities, in source file db/mult_4dt.tdf
+    Info: Found entity 1: mult_4dt
+Info: Timing-Driven Synthesis is running
+Info: 14 registers lost all their fanouts during netlist optimizations. The first 14 are displayed below.
+    Info: Register "MidiProcessor:midiProcessor|dataBytesReceivedCount~2" lost all its fanouts during netlist optimizations.
+    Info: Register "MidiProcessor:midiProcessor|dataBytesReceivedCount~3" lost all its fanouts during netlist optimizations.
+    Info: Register "MidiProcessor:midiProcessor|dataBytesReceivedCount~4" lost all its fanouts during netlist optimizations.
+    Info: Register "MidiProcessor:midiProcessor|dataBytesReceivedCount~5" lost all its fanouts during netlist optimizations.
+    Info: Register "MidiProcessor:midiProcessor|dataBytesReceivedCount~6" lost all its fanouts during netlist optimizations.
+    Info: Register "MidiProcessor:midiProcessor|dataBytesReceivedCount~7" lost all its fanouts during netlist optimizations.
+    Info: Register "MidiProcessor:midiProcessor|dataBytesReceivedCount~8" lost all its fanouts during netlist optimizations.
+    Info: Register "MidiProcessor:midiProcessor|dataBytesReceivedCount~9" lost all its fanouts during netlist optimizations.
+    Info: Register "MidiProcessor:midiProcessor|MidiByteReader:midiByteReader|midiState~7" lost all its fanouts during netlist optimizations.
+    Info: Register "MidiProcessor:midiProcessor|MidiByteReader:midiByteReader|midiState~8" lost all its fanouts during netlist optimizations.
+    Info: Register "MidiProcessor:midiProcessor|MidiByteReader:midiByteReader|midiState~9" lost all its fanouts during netlist optimizations.
+    Info: Register "MidiProcessor:midiProcessor|MidiByteReader:midiByteReader|midiState~10" lost all its fanouts during netlist optimizations.
+    Info: Register "MidiProcessor:midiProcessor|MidiByteReader:midiByteReader|midiState~11" lost all its fanouts during netlist optimizations.
+    Info: Register "MidiProcessor:midiProcessor|MidiByteReader:midiByteReader|midiState~12" lost all its fanouts during netlist optimizations.
+Info: Generating hard_block partition "hard_block:auto_generated_inst"
+Info: Implemented 994 device resources after synthesis - the final resource count might be different
+    Info: Implemented 2 input pins
+    Info: Implemented 11 output pins
+    Info: Implemented 917 logic cells
+    Info: Implemented 48 RAM segments
+    Info: Implemented 16 DSP elements
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 4508 megabytes
+    Info: Processing ended: Wed Mar 27 03:45:32 2019
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:04
+
+

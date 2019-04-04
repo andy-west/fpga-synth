@@ -1,0 +1,9 @@
+v1
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult7|mult_4dt:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult9|mult_4dt:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult5|mult_4dt:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult3|mult_4dt:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult0|mult_kbt:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult1|mult_kbt:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult11|mult_kbt:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult13|mult_kbt:auto_generated|mac_out2,

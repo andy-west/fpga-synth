@@ -1,0 +1,16 @@
+Fitter Status : Successful - Wed Mar 27 03:45:40 2019
+Quartus II 64-Bit Version : 10.1 Build 197 01/19/2011 SP 1 SJ Web Edition
+Revision Name : SoundModule
+Top-level Entity Name : SoundModule
+Family : Cyclone IV E
+Device : EP4CE22F17C6
+Timing Models : Final
+Total logic elements : 898 / 22,320 ( 4 % )
+    Total combinational functions : 860 / 22,320 ( 4 % )
+    Dedicated logic registers : 183 / 22,320 ( < 1 % )
+Total registers : 183
+Total pins : 13 / 154 ( 8 % )
+Total virtual pins : 0
+Total memory bits : 12,288 / 608,256 ( 2 % )
+Embedded Multiplier 9-bit elements : 16 / 132 ( 12 % )
+Total PLLs : 0 / 4 ( 0 % )

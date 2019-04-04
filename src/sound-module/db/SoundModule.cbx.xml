@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="SoundModule">
+		<CBX_INST_ENTRY INSTANCE_NAME="|SoundModule|Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult1" CBX_FILE_NAME="mult_kbt.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SoundModule|Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult5" CBX_FILE_NAME="mult_4dt.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SoundModule|Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult9" CBX_FILE_NAME="mult_4dt.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SoundModule|Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult0" CBX_FILE_NAME="mult_kbt.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SoundModule|Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult11" CBX_FILE_NAME="mult_kbt.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SoundModule|Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult13" CBX_FILE_NAME="mult_kbt.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SoundModule|Synthesizer:synthesizer|WaveTable0Rom:waveTable0Rom|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_l391.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SoundModule|Synthesizer:synthesizer|WaveTable1Rom:waveTable1Rom|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_m391.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SoundModule|Synthesizer:synthesizer|WaveTable2Rom:waveTable2Rom|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_n391.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SoundModule|Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult3" CBX_FILE_NAME="mult_4dt.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SoundModule|Synthesizer:synthesizer|SampleMixer:sampleMixer|lpm_mult:Mult7" CBX_FILE_NAME="mult_4dt.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

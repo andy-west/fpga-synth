@@ -1,0 +1,13 @@
+
+State Machine - |SoundModule|MidiProcessor:midiProcessor|dataBytesReceivedCount
+Name dataBytesReceivedCount.00000011 dataBytesReceivedCount.00000010 dataBytesReceivedCount.00000001 dataBytesReceivedCount.00000000 
+dataBytesReceivedCount.00000000 0 0 0 0 
+dataBytesReceivedCount.00000001 0 0 1 1 
+dataBytesReceivedCount.00000010 0 1 0 1 
+dataBytesReceivedCount.00000011 1 0 0 1 
+
+State Machine - |SoundModule|MidiProcessor:midiProcessor|MidiByteReader:midiByteReader|midiState
+Name midiState.stateWaitingForSignal midiState.stateByteComplete midiState.stateSignalAvailable 
+midiState.stateWaitingForSignal 0 0 0 
+midiState.stateSignalAvailable 1 0 1 
+midiState.stateByteComplete 1 1 0 
